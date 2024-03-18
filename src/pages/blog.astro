@@ -5,10 +5,17 @@ import BlogPost from '../components/BlogPost.astro';
 const allPosts = await Astro.glob('./posts/*.md');
 const pageTitle = 'My Blog';
 ---
+<style>
+    .posts {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+</style>
 <BaseLayout pageTitle={pageTitle}>
   <h2>This is my blog page</h2>
 
-  <ul>
-    {allPosts.map(post => <BlogPost url={post.url} title={post.frontmatter.title}/>)}
+  <div class="posts">
+    {allPosts.map(post => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description}/>)}
   </ul>
 </BaseLayout>
