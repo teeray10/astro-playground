@@ -20,6 +20,8 @@ const { frontmatter } = Astro.props;
         max-width: 150px;
         padding: 0.5em;
         text-align: center;
+        text-decoration: none;
+        color: whitesmoke
     }
 
     img {
@@ -34,7 +36,7 @@ const { frontmatter } = Astro.props;
         <p>{frontmatter.description}</p>
         <img src={frontmatter.image.url} alt={frontmatter.image.alt} width='300px' />
         <div class="tags">
-            {frontmatter.tags.map(tagName => <div class="tag">{tagName}</div>)}
+            {frontmatter.tags.map((tagName: string) => <a class="tag" href={`/tags/${tagName}`}>{tagName}</a>)}
         </div>
     </header>
     
