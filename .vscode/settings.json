@@ -1,3 +1,22 @@
 {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-}
+    "editor.inlineSuggest.enabled": true,
+    "git.autofetch": true,
+    "editor.formatOnSave": true,
+    "prettier.bracketSameLine": true,
+    "prettier.singleQuote": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+    "prettier.bracketSpacing": false,
+    "prettier.enable": false,
+    "editor.autoClosingQuotes": "beforeWhitespace",
+    "javascript.preferences.quoteStyle": "single",
+    "typescript.preferences.quoteStyle": "single",
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "always"
+    },
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "prettier.jsxSingleQuote": true
+  }
+  

@@ -1,6 +1,6 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import '../styles/global.css';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import '@styles/global.css';
 
 const pageTitle = 'About Me';
 
@@ -13,13 +13,12 @@ const identity = {
 
 const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const skillColor = 'navy';
 const fontWeight = 'bold';
 const textCase = 'uppercase';
-
 ---
 <style define:vars={{skillColor, fontWeight, textCase}}>
     .skill {
