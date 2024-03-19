@@ -1,0 +1,20 @@
+---
+import MarkdownPostLayout from '@layouts/MarkdownPostLayout.astro';
+import fetchApi from '@lib/strapi';
+
+export async function getStaticPaths(): Promise<any> {
+    const posts = await fetchApi<any[]>({
+        endpoint: 'posts',
+        wrappedByKey: 'data'
+    });
+
+    return posts.map(post => ({
+            params: {post: post.attributes.slug},
+            props: {post: post.attributes}
+        })
+    );
+}
+const {post} = Astro.props;
+---
+
+<MarkdownPostLayout post={post}></MarkdownPostLayout>
