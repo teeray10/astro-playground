@@ -11,7 +11,7 @@ const theme = (() => {
 if (theme === 'light') {
     document.documentElement.classList.remove('dark');
 } else {
-    ocument.documentElement.classList.add('dark');
+    document.documentElement.classList.add('dark');
 }
 
 window.localStorage.setItem('theme', theme);
