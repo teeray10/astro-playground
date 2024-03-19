@@ -1,7 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro';
 
-const { frontmatter } = Astro.props;
+const { post } = Astro.props;
 ---
 <style>
     article {
@@ -29,14 +29,16 @@ const { frontmatter } = Astro.props;
     }
 </style>
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={post.title}>
     <header>
-        <p>Authored by {frontmatter.author}</p>
-        <p>Published on: {new Date(frontmatter.pubDate).toDateString()}</p>
-        <p>{frontmatter.description}</p>
-        <img src={frontmatter.image.url} alt={frontmatter.image.alt} width='300px' />
+        <p>Authored by {post.author}</p>
+        <p>Published on: {new Date(post.pubDate).toDateString()}</p>
+        <p>{post.description}</p>
+        {post.image && 
+            <img src={post.image.url} alt={post.image.alt} width='300px' />
+        }
         <div class="tags">
-            {frontmatter.tags.map((tagName: string) => <a class="tag" href={`/tags/${tagName}`}>{tagName}</a>)}
+            {post.tags.map((tagName: string) => <a class="tag" href={`/tags/${tagName}`}>{tagName}</a>)}
         </div>
     </header>
     

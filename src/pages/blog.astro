@@ -1,8 +1,14 @@
 ---
 import BlogPost from '@components/BlogPost.astro';
 import BaseLayout from '@layouts/BaseLayout.astro';
+import fetchApi from '@lib/strapi.ts';
 
-const allPosts = await Astro.glob('./posts/*.md');
+// Fetching from local markdown files
+// const allPosts = await Astro.glob('./posts/*.md');
+const allPosts = await fetchApi<any[]>({
+  endpoint: 'posts',
+  wrappedByKey: 'data'
+});
 const pageTitle = 'My Blog';
 ---
 <style>
@@ -16,6 +22,8 @@ const pageTitle = 'My Blog';
   <h2>This is my blog page</h2>
 
   <div class="posts">
-    {allPosts.map(post => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description}/>)}
+    {allPosts.map(post => <BlogPost url={`/posts/${post.attributes.slug}`} title={post.attributes.title} description={post.attributes.description}/>)}
+    <!-- When fetched from local markdown files -->
+    <!-- {allPosts.map(post => <BlogPost url={post.url} title={post.frontmatter.title} description={post.frontmatter.description}/>)} -->
   </ul>
 </BaseLayout>
